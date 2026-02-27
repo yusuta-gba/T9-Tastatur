@@ -56,7 +56,7 @@ private slots:
 
     void setCode(int counter);
     void generateCode(char a);
-    void decryptCode(int counter, bool visible);
+    void decryptCode(int counter, bool visible, bool stop);
     void on_radioButton_clicked();
     void resetCounter();
     void saveTime(bool v1);
@@ -105,3 +105,4 @@ private:
 
 };
 #endif // MAINWINDOW_H
+
