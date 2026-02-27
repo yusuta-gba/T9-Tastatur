@@ -111,7 +111,7 @@ void MainWindow::on_pushButton_13_clicked()
                                  */
     if(this->row <4)
     { int localCounter = 0;
-    this->decryptCode(localCounter,false);
+    this->decryptCode(localCounter,false, true);
     int n1 = this->stringNumbersBackUp.length();
     int n2 = this->Password[this->row].length();
     int counter2 = 0;
@@ -132,7 +132,7 @@ void MainWindow::on_pushButton_13_clicked()
     else
     {
         int localCounter = 0;
-        this->decryptCode(localCounter,false);
+        this->decryptCode(localCounter,false, true);
         int n1 = this->stringNumbersBackUp.length();
         int n2 = this->dynamicPassword[this->row -4].length();
         int counter2 = 0;
@@ -279,23 +279,26 @@ void MainWindow::setCode(int c)            // Erzeugung des Unicodes
 
 void MainWindow::decryptCode(int c, bool visible)    // Ausgabe der eigentlichen Nutzdaten
 {
-
     if(c == this->counter)
     {
-        if(visible == true)
-            ui->textEdit->setText(this->stringNumbersBackUp.c_str());
+        if(visible == true && stop == false)
+        {    ui->textEdit->setText(this->stringNumbersBackUp.c_str());
+            return;
+        }
         else
             ui->textEdit->setText(this->stringChainBackUp.c_str());
         this->stringNumbersBackUp.assign(this->stringNumbers);
         this->stringNumbers = "";
         this->resetCounter();
+        if(stop != true)
+            decryptCode(0, visible = true, stop = false);
         return;
     }
     else
     {
         this->stringNumbers += this->q1.front();
         this->q1.pop();
-        decryptCode(++c, visible = false);
+        decryptCode(++c, visible = false, stop);
     }
 }
 
@@ -910,6 +913,7 @@ void MainWindow::on_pushButton_17_clicked()
     }
     this->seed = this->seed +1;
 }
+
 
 
 
