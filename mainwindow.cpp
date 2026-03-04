@@ -889,7 +889,7 @@ void MainWindow::on_pushButton_17_clicked()
         this->generateStatic = false;
     }
     /*
-     * Erzeugung von Pseudozufallszahlen, dieser als Message-parameter der Md5-Funktion übergeben wird.
+     * Erzeugung von Pseudozufallszahlen, diese als Message-parameter der Md5-Funktion übergeben werden.
      */
     QCryptographicHash * MD5 = new QCryptographicHash(QCryptographicHash::Md5);
     QRandomGenerator64 * PRNG = new QRandomGenerator64(this->seed);
@@ -913,6 +913,7 @@ void MainWindow::on_pushButton_17_clicked()
     }
     this->seed = this->seed +1;
 }
+
 
 
 
