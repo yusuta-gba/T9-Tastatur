@@ -277,7 +277,7 @@ void MainWindow::setCode(int c)            // Erzeugung des Unicodes
     return;
     }
 
-void MainWindow::decryptCode(int c, bool visible)    // Ausgabe der eigentlichen Nutzdaten
+void MainWindow::decryptCode(int c, bool visible, bool stop)    // Ausgabe der eigentlichen Nutzdaten
 {
     if(c == this->counter)
     {
@@ -913,6 +913,7 @@ void MainWindow::on_pushButton_17_clicked()
     }
     this->seed = this->seed +1;
 }
+
 
 
 
