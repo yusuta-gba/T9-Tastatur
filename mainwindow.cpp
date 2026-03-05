@@ -305,7 +305,7 @@ void MainWindow::decryptCode(int c, bool visible, bool stop)    // Ausgabe der e
 void MainWindow::on_radioButton_clicked()        //Klicken des Radiobuttons
 {
     int localCounter = 0;
-    this->decryptCode(localCounter,true);
+    this->decryptCode(localCounter,true, false);
 }
 
 void MainWindow::resetCounter()            // Zurücksetzen des Systems
@@ -913,6 +913,7 @@ void MainWindow::on_pushButton_17_clicked()
     }
     this->seed = this->seed +1;
 }
+
 
 
 
